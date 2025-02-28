@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>dependencies-bom</artifactId>
+    <packaging>pom</packaging>
+
+    <name>Dependencies Bill of Materials (BOM)</name>
+    <description>A dependencies BOM for Java projects</description>
+
+    <parent>
+        <groupId>com.github.gordonforce.java</groupId>
+        <artifactId>java-maven-support</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+
+        <properties>
+            <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+            <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+            <java.release.version>21</java.release.version>
+
+            <spring-boot.version>3.4.3</spring-boot.version>
+
+            <record-builder.version>44</record-builder.version>
+
+            <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+            <maven-jacoco-plugin.version>0.8.12</maven-jacoco-plugin.version>
+            <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+            <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
+        </properties>
+
+        <dependencyManagement>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-dependencies</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <type>pom</type>
+                    <scope>import</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-docker-compose</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-configuration-processor</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>io.soabase.record-builder</groupId>
+                    <artifactId>record-builder-core</artifactId>
+                    <version>${record-builder.version}</version>
+                </dependency>
+                <!-- Plugin Dependencies -->
+                <dependency>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${maven-project-info-reports-plugin.version}</version>
+                </dependency>
+            </dependencies>
+        </dependencyManagement>
+
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${maven-compiler-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${maven-jacoco-plugin.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-maven-plugin</artifactId>
+                        <version>${spring-boot.version}</version>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                        <version>${maven-surefire-plugin.version}</version>
+                        <configuration>
+                            <aggregate>true</aggregate>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-project-info-reports-plugin</artifactId>
+                        <version>${maven-project-info-reports-plugin.version}</version>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+
+        <!-- Add reporting plugins configuration -->
+        <reporting>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${maven-project-info-reports-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </reporting>
+    </project>
