@@ -1,17 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <directory url="file://$PROJECT_DIR$/java-parent/maven-archtype-java-library/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/maven-archtype-java-library/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/archetype-java-library/src/main/resources/archetype-resources" includeSubdirectories="true" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
       </profile>
+      <profile name="Annotation profile for Java Maven Support" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/44/record-builder-processor-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/java-composer/java-composer/1.0/java-composer-1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/44/record-builder-core-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/44/record-builder-processor-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/java-composer/java-composer/1.0/java-composer-1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/44/record-builder-core-44.jar" />
+        </processorPath>
+        <module name="archetype-java-library" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="maven-archtype-java-library" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="archetype-java-library" options="-parameters" />
       <module name="java-parent" options="-parameters" />
+      <module name="maven-archtype-java-library" options="-parameters" />
     </option>
   </component>
 </project>
