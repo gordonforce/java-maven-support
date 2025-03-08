@@ -1,5 +1,7 @@
 # Java Maven Support Project
 
+[![Build Status](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml/badge.svg)](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml)
+
 ## Project Overview
 This project provides Maven configuration and support for Java projects, including:
 - Parent POM configurations

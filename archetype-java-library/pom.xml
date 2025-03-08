@@ -18,7 +18,7 @@
     <description>Maven archetype for creating Java library projects with standardized configuration</description>
 
     <properties>
-        <maven-archetype-plugin.version>3.2.1</maven-archetype-plugin.version>
+        <maven-archetype-plugin.version>3.3.0</maven-archetype-plugin.version>
     </properties>
 
     <build>
