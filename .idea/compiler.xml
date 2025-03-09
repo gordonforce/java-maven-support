@@ -17,7 +17,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/unknown/record-builder-processor-unknown.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/44/record-builder-processor-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/java-composer/java-composer/1.0/java-composer-1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/44/record-builder-core-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-processor/44/record-builder-processor-44.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/java-composer/java-composer/1.0/java-composer-1.0.jar" />
+          <entry name="$MAVEN_REPOSITORY$/io/soabase/record-builder/record-builder-core/44/record-builder-core-44.jar" />
         </processorPath>
         <module name="archetype-java-library" />
       </profile>
