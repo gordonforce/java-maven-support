@@ -9,12 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        java: [ '21' ]
-      fail-fast: false
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
@@ -32,13 +27,8 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
 
-    - name: Build with Maven (Unix)
-      if: runner.os != 'Windows'
+    - name: Build with Maven
       run: ./mvnw -B clean install
-
-    - name: Build with Maven (Windows)
-      if: runner.os == 'Windows'
-      run: .\mvnw.cmd -B clean install
 
     - name: Test Report
       uses: dorny/test-reporter@v1

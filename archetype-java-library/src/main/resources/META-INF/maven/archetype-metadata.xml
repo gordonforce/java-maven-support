@@ -37,7 +37,7 @@
         
         <!-- Git ignore file -->
         <fileSet encoding="UTF-8">
-            <directory></directory>
+            <directory/>
             <includes>
                 <include>.gitignore</include>
             </includes>

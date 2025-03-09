@@ -6,7 +6,7 @@
 
     <name>Java Maven Support</name>
 
-    <description>Defines the dependencies, parent poms, and archtypes for java projects using maven</description>
+    <description>Defines the dependencies, parent poms, and archetypes for java projects using maven</description>
 
     <groupId>com.github.gordonforce.java</groupId>
     <artifactId>java-maven-support</artifactId>
