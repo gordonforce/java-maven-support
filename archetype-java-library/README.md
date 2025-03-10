@@ -45,6 +45,7 @@ my-library/
 - Test resources:
   - logback-test.xml
   - junit-platform.properties
+  - jacoco.exec (for code coverage reporting)
 - Git ignore patterns
 - Standard Maven plugins
 
@@ -54,3 +55,19 @@ After generating your project:
 2. Add your specific dependencies
 3. Customize logging configuration if needed
 4. Add your library's source code and tests
+
+## Testing
+The archetype includes comprehensive tests to ensure it works correctly:
+
+### Unit Tests
+- **ArchetypeDescriptorTest**: Verifies the archetype descriptor (archetype-metadata.xml) is valid and contains the expected elements
+- **ArchetypeTemplateFilesTest**: Ensures template files are present and contain the expected content
+
+### Integration Tests
+- **ArchetypeIT**: Verifies the project generated from the archetype has the expected configuration
+- **ArchetypeGenerationTest**: Tests the actual generation of a project from the archetype
+
+To run the tests:
+```bash
+mvn test
+```

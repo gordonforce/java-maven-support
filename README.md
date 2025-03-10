@@ -1,6 +1,6 @@
 # Java Maven Support Project
 
-[![Build Status](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml/badge.svg)](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml)
+[![Master Branch Build Status](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml/badge.svg)](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml)
 
 ## Project Overview
 This project provides Maven configuration and support for Java projects, including:
@@ -114,7 +114,62 @@ This project uses Maven Wrapper, which means you don't need to install Maven loc
 - Spring Boot Maven Plugin
 - GraalVM Native Plugin
 
+## Continuous Integration
+This project uses GitHub Actions to automatically build and test the code:
+
+- A webhook is configured to trigger builds after each push or merge to the master branch
+- The build process compiles the code, runs tests, and generates test and coverage reports
+- Build status is displayed in the badge at the top of this README
+- You can view build history and logs in the [Actions tab](https://github.com/gordonforce/java-maven-support/actions)
+
+## Maven Extensions
+Maven extensions are components that extend or modify Maven's core functionality. Unlike plugins that operate within the build lifecycle, extensions operate at the Maven core level and can influence how Maven itself works.
+
+### What are Maven Extensions?
+- **Definition**: Maven extensions are JAR files that extend Maven's core functionality
+- **Purpose**: They modify Maven's behavior at a fundamental level, beyond what plugins can do
+- **Loading**: Extensions are loaded before the project object model (POM) is read
+
+### How Maven Extensions Work
+1. Extensions are defined in the `<build><extensions>` section of a POM file
+2. Maven loads these extensions early in its startup process
+3. Extensions can add new functionality, modify existing behavior, or integrate with external systems
+4. Unlike plugins, extensions are not bound to specific build phases
+
+### Examples in This Project
+In the `archetype-java-library` module, we use the `archetype-packaging` extension:
+
+```xml
+<extensions>
+    <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>${maven-archetype-plugin.version}</version>
+    </extension>
+</extensions>
+```
+
+This extension enables the `maven-archetype` packaging type, allowing the module to be built and used as a Maven archetype.
+
+### Common Use Cases
+- **Custom Packaging Types**: Adding support for new packaging types (like the archetype example above)
+- **Build Process Integration**: Integrating with external build systems or tools
+- **Repository Extensions**: Extending Maven's repository system for custom storage solutions
+- **Wagon Providers**: Adding support for new transport protocols for artifact deployment
+- **Build Lifecycle Extensions**: Modifying or extending Maven's build lifecycle
+
+### How to Implement Maven Extensions
+1. Add the extension to your POM file in the `<build><extensions>` section
+2. Specify the groupId, artifactId, and version of the extension
+3. The extension will be automatically loaded when Maven starts
+
+### Best Practices
+- Use extensions sparingly, as they affect Maven's core behavior
+- Prefer plugins over extensions when possible
+- Document the purpose and impact of extensions in your project
+- Keep extension versions in sync with your Maven version
+
 ## Additional Resources
 - [GitHub Repository](https://github.com/gordonforce/java-maven-support)
 - [Issue Tracker](https://github.com/gordonforce/java-maven-support/issues)
-- [CI/CD](https://github.com/gordonforce/java-maven-support/actions)
+- [Master Branch Build Webhook](https://github.com/gordonforce/java-maven-support/actions/workflows/build.yml)

@@ -61,6 +61,8 @@
         <maven-project-info-reports-plugin.version>3.9.0</maven-project-info-reports-plugin.version>
     </properties>
 
+    <!-- Build configuration moved to modules -->
+
     <reporting>
         <plugins>
             <plugin>
